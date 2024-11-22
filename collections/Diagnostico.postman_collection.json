@@ -111,6 +111,107 @@
 			]
 		},
 		{
+			"name": "Add a Invalid Diagnostico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Un diagnóstico médico detallado describe el estado de salud del paciente basado en un análisis exhaustivo de los síntomas, antecedentes clínicos, resultados de exámenes físicos y pruebas de laboratorio. Este puede incluir el nombre de la afección, su gravedad, posibles causas, tratamientos sugeridos, factores de riesgo asociados, y recomendaciones para prevenir complicaciones futuras o mejorar la calidad de vida del paciente afectado.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Invalid Diagnostico",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Un diagnóstico médico detallado describe el estado de salud del paciente basado en un análisis exhaustivo de los síntomas, antecedentes clínicos, resultados de exámenes físicos y pruebas de laboratorio. Este puede incluir el nombre de la afección, su gravedad, posibles causas, tratamientos sugeridos, factores de riesgo asociados, y recomendaciones para prevenir complicaciones futuras o mejorar la calidad de vida del paciente afectado.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "101"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"65-q9F5CdDD3LB75s1iHhKZC35tIWI\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 22 Nov 2024 14:51:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"La descripción del diagnóstico no puede tener más de 200 caracteres\"\n}"
+				}
+			]
+		},
+		{
 			"name": "Get all Diagnosticos",
 			"event": [
 				{
