@@ -21,6 +21,7 @@ export class DiagnosticoService {
   async findOne(id: string): Promise<DiagnosticoEntity> {
     const diagnostico = await this.diagnosticoRepository.findOne({
       where: { id },
+      relations: ['pacientes'],
     });
 
     if (!diagnostico) {
@@ -46,6 +47,7 @@ export class DiagnosticoService {
   async delete(id: string): Promise<void> {
     const diagnostico = await this.diagnosticoRepository.findOne({
       where: { id },
+      relations: ['pacientes'],
     });
     if (!diagnostico) {
       throw new BusinessLogicException(

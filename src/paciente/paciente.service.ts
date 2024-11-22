@@ -21,6 +21,7 @@ export class PacienteService {
   async findOne(id: string): Promise<PacienteEntity> {
     const paciente = await this.pacienteRepository.findOne({
       where: { id },
+      relations: ['diagnosticos', 'medicos'],
     });
 
     if (!paciente) {
@@ -46,6 +47,7 @@ export class PacienteService {
   async delete(id: string): Promise<void> {
     const paciente = await this.pacienteRepository.findOne({
       where: { id },
+      relations: ['diagnosticos', 'medicos'],
     });
     if (!paciente) {
       throw new BusinessLogicException(
