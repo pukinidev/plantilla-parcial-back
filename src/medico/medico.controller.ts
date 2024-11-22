@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   Post,
   UseInterceptors,
@@ -35,6 +36,7 @@ export class MedicoController {
   }
 
   @Delete(':medicoId')
+  @HttpCode(204)
   async delete(@Param('medicoId') medicoId: string) {
     return this.medicoService.delete(medicoId);
   }
