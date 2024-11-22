@@ -248,7 +248,7 @@
 			},
 			"response": [
 				{
-					"name": "New Request",
+					"name": "Add Medico To Paciente",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
