@@ -52,7 +52,7 @@ export class PacienteMedicoService {
       );
     }
 
-    paciente.medicos = [...paciente.medicos, medico];
+    paciente.medicos.push(medico);
     return this.pacienteRepository.save(paciente);
   }
 }
