@@ -46,8 +46,8 @@ export class PacienteMedicoService {
 
     if (paciente.medicos.length >= 5) {
       throw new BusinessLogicException(
-        'No se pueden agregar más médicos',
-        BusinessError.BAD_REQUEST,
+        'No se puede agregar más de 5 médicos a un paciente',
+        BusinessError.PRECONDITION_FAILED,
       );
     }
 
