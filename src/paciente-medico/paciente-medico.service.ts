@@ -24,6 +24,7 @@ export class PacienteMedicoService {
   ): Promise<PacienteEntity> {
     const paciente = await this.pacienteRepository.findOne({
       where: { id: pacienteId },
+      relations: ['medicos'],
     });
 
     if (!paciente) {
@@ -35,6 +36,7 @@ export class PacienteMedicoService {
 
     const medico = await this.medicoRepository.findOne({
       where: { id: medicoId },
+      relations: ['pacientes'],
     });
 
     if (!medico) {
