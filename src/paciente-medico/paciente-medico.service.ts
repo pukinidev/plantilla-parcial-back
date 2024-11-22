@@ -36,7 +36,6 @@ export class PacienteMedicoService {
 
     const medico = await this.medicoRepository.findOne({
       where: { id: medicoId },
-      relations: ['pacientes'],
     });
 
     if (!medico) {
