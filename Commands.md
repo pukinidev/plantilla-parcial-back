@@ -6,7 +6,7 @@
 
 ## Create Entity
 
-`nest g cl entity/entity.entity --no-spec`
+`nest g cl module/entity.entity --no-spec`
 
 ### Basic Entity
 
@@ -90,3 +90,104 @@ export class User {
 }
 
 ```
+
+### Create Services
+
+`nest g s servicename`
+
+* Inyect the entity repository into the service
+
+  ```typescript
+  constructor(
+     @InjectRepository(nameEntity)
+     private readonly nameRepository: Repository<NameEntity>
+  ){}
+  ```
+* Add import of the entity in the current module
+
+  ```typescript
+  imports: [TypeOrmModule.forFeature([NameEntity])]
+  ```
+* Define basic CRUD methods
+
+  * findAll()
+  * findOne()
+  * create()
+  * update()
+  * delete()
+* Ensure business requirements are validated and throw exceptions if the entity does not exist.
+
+  ```typescript
+  if (entity.attribute !== 'requirement') {
+    throw new BusinessLogicException("Invalid business requirement", BusinessError.PRECONDITION_FAILED);
+  }
+
+  if (!entity)
+     throw new BusinessLogicException("Entity not found", BusinessError.NOT_FOUND);
+  ```
+
+### Create Controllers and DTO's
+
+`nest g co module --no-spec`
+
+* Create Entity DTO
+
+  * `nest g cl module/entity.dto --no-spec`
+    ```typescript
+    import {IsNotEmpty, IsString} from 'class-validator';
+    export class EntityDto {
+
+     @IsString()
+     @IsNotEmpty()
+     readonly atribute: string;
+
+    }
+    ```
+* Define Controller
+
+  ```typescript
+  @Controller('entitys') // plural of entity
+  @UseInterceptors(BusinessErrorsInterceptor)
+  export class EntityController {
+      constructor(private readonly entityService: EntityService) {}
+  }
+  ```
+* Define Controller Methods
+
+  * Get() -> FindAll
+  * Get('entityID') -> FindOne
+  * @Post() -> Create
+  * @Put('entityID') -> Update
+  * @Delete('entityID') -> Delete Entity
+
+  Example:
+
+  ```typescript
+    @Get()
+    async findAll() {
+      return await this.entityService.findAll();
+    }
+
+    @Get(':entityId')
+    async findOne(@Param('entityId') entityId: string) {
+      return await this.entityService.findOne(entityId);
+    }
+
+    @Post()
+    async create(@Body() entityDto: EntityDto) {
+      const entity: NameEntity = plainToInstance(NameEntity, entityDto);
+      return await this.entityService.create(entity);
+    }
+
+    @Put(':entityId')
+    async update(@Param('entityId') entityId: string, @Body() entityDto: EntityDto) {
+      const entity: NameEntity = plainToInstance(NameEntity, entityDto);
+      return await this.entityService.update(entityId, entity);
+    }
+
+    @Delete(':entityId')
+    @HttpCode(204)
+    async delete(@Param('entityId') entityId: string) {
+      return await this.entityService.delete(entityId);
+    }
+  ```
