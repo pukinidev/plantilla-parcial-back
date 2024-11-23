@@ -61,7 +61,7 @@ export class MedicoService {
         BusinessError.NOT_FOUND,
       );
     }
-    if (medico.pacientes.length >= 1) {
+    if (medico.pacientes.length > 0) {
       throw new BusinessLogicException(
         'No se puede eliminar un médico con pacientes asociados',
         BusinessError.PRECONDITION_FAILED,

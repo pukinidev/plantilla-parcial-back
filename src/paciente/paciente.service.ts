@@ -56,7 +56,7 @@ export class PacienteService {
       );
     }
 
-    if (paciente.diagnosticos.length >= 1) {
+    if (paciente.diagnosticos.length > 0) {
       throw new BusinessLogicException(
         'No se puede eliminar un paciente con diagnósticos asociados',
         BusinessError.PRECONDITION_FAILED,
