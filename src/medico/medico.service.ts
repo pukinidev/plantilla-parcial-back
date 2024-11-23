@@ -35,6 +35,18 @@ export class MedicoService {
   }
 
   async create(medico: MedicoEntity): Promise<MedicoEntity> {
+    if (medico.nombre === '') {
+      throw new BusinessLogicException(
+        'El nombre del médico no puede estar vacío',
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
+    if (medico.especialidad === '') {
+      throw new BusinessLogicException(
+        'La especialidad del médico no puede estar vacía',
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
     return this.medicoRepository.save(medico);
   }
 
