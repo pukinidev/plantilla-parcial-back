@@ -1,4 +1,4 @@
-# Parcial 2 
+# Parcial 2
 
 Valeria Caro Ramirez - 202111040
 
@@ -20,3 +20,5 @@ El proyecto se configuro con docker para la base de datos, sin embargo, solo es 
 ### Local
 
 Para correr el proyecto con una instalacion local de la base de datos se debe cambiar la configuracion de la base de datos en el  app.module.ts.
+
+![1732421557805](image/README/1732421557805.png)
