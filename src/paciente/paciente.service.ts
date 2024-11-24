@@ -5,7 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import {
   BusinessError,
   BusinessLogicException,
-} from 'src/shared/errors/business-errors';
+} from '../shared/errors/business-errors';
 
 @Injectable()
 export class PacienteService {

@@ -1,5 +1,5 @@
-import { DiagnosticoEntity } from 'src/diagnostico/diagnostico.entity/diagnostico.entity';
-import { MedicoEntity } from 'src/medico/medico.entity/medico.entity';
+import { DiagnosticoEntity } from '../../diagnostico/diagnostico.entity/diagnostico.entity';
+import { MedicoEntity } from '../../medico/medico.entity/medico.entity';
 import {
   Column,
   Entity,
