@@ -1,0 +1,1588 @@
+{
+	"info": {
+		"_postman_id": "012c15bd-111b-4cef-ba51-9e3cd0e7d06b",
+		"name": "PacienteMedico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23349476"
+	},
+	"item": [
+		{
+			"name": "Add a Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"paciente_id\", data.id);",
+							"",
+							"pm.globals.set(\"invalid_paciente_id\", \"00000000-0000-0000-0000-000000000000\");",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/pacientes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pacientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-hBrEyN/GNtiiKYXZiJsnHIS/NFA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:50:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\",\n    \"id\": \"97ae785b-03f2-4e81-bf4a-04ddfa0c7ce9\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Medico 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"medico1_id\", data.id);",
+							"",
+							"pm.globals.set(\"invalid_medico_id\", \"00000000-0000-0000-0000-000000000000\");",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Medico 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-PWEQujRMbU6WsXP0qaqe7ylSUW0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:50:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"id\": \"09856d05-a9af-4f6b-a987-885385bcf401\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Medico 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"medico2_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Medico 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-lxEzvRogw/8jugpqFuEtyRi/780\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:50:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"id\": \"4f782148-eaee-48e9-b9ef-54a79e808b5b\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Medico 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"medico3_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Medico 3",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-dFCrpw1K3AcxL75Y9nLJhQl4nVw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:51:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"id\": \"28872109-f36f-4235-8a1f-a5d5c413fa81\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Medico 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"medico4_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Medico 4",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-unLtkjxP+12fW9WF2ljLcMyWbvY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:51:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"id\": \"b0d195f7-4b5c-4847-8398-7b066328bfbf\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Medico 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"medico5_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Medico 5",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-Fgn5yZFVpAE6CY6c7i+nd4zAjDQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:51:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"id\": \"a1c0fcbf-50e9-41fb-b580-4b54ee2cad72\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Medico 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"medico6_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Medico 6",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-SYUWVCE8XjLzvj/VE3NCDDm5CAM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:55:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"id\": \"ad222faa-8934-44c8-b56f-ee4c4ee73560\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Medico 1 To Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico1_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}",
+						"medicos",
+						"{{medico1_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Medico 1 To Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico1_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}",
+								"medicos",
+								"{{medico1_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "205"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cd-j7gWEA8NWlJF39zZsPMEapyHYwU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:51:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"97ae785b-03f2-4e81-bf4a-04ddfa0c7ce9\",\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\",\n    \"medicos\": [\n        {\n            \"id\": \"09856d05-a9af-4f6b-a987-885385bcf401\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Medico 2 To Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico2_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}",
+						"medicos",
+						"{{medico2_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Medico 2 To Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico2_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}",
+								"medicos",
+								"{{medico2_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "320"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"140-BFX0gbpYnyCrcPZ2nsUEvHbB+TQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:51:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"97ae785b-03f2-4e81-bf4a-04ddfa0c7ce9\",\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\",\n    \"medicos\": [\n        {\n            \"id\": \"09856d05-a9af-4f6b-a987-885385bcf401\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"4f782148-eaee-48e9-b9ef-54a79e808b5b\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Medico 3 To Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico3_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}",
+						"medicos",
+						"{{medico3_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Medico 3 To Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico3_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}",
+								"medicos",
+								"{{medico3_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "435"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b3-be06LXcmpdoCY5I08y4GO2Rcy8Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:51:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"97ae785b-03f2-4e81-bf4a-04ddfa0c7ce9\",\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\",\n    \"medicos\": [\n        {\n            \"id\": \"09856d05-a9af-4f6b-a987-885385bcf401\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"4f782148-eaee-48e9-b9ef-54a79e808b5b\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"28872109-f36f-4235-8a1f-a5d5c413fa81\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Medico 4 To Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico4_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}",
+						"medicos",
+						"{{medico4_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Medico 4 To Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico4_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}",
+								"medicos",
+								"{{medico4_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "550"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"226-xouArPCoCAJx8+iwhHBhYakces0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:51:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"97ae785b-03f2-4e81-bf4a-04ddfa0c7ce9\",\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\",\n    \"medicos\": [\n        {\n            \"id\": \"09856d05-a9af-4f6b-a987-885385bcf401\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"4f782148-eaee-48e9-b9ef-54a79e808b5b\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"28872109-f36f-4235-8a1f-a5d5c413fa81\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"b0d195f7-4b5c-4847-8398-7b066328bfbf\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Medico 5 To Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico5_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}",
+						"medicos",
+						"{{medico5_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Medico 5 To Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico5_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}",
+								"medicos",
+								"{{medico5_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "665"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"299-k+KyuvIoXkNEU+NCs4I9rzpPa8U\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:52:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"97ae785b-03f2-4e81-bf4a-04ddfa0c7ce9\",\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\",\n    \"medicos\": [\n        {\n            \"id\": \"09856d05-a9af-4f6b-a987-885385bcf401\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"4f782148-eaee-48e9-b9ef-54a79e808b5b\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"28872109-f36f-4235-8a1f-a5d5c413fa81\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"b0d195f7-4b5c-4847-8398-7b066328bfbf\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"a1c0fcbf-50e9-41fb-b580-4b54ee2cad72\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get 5 medicos from paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of entities = ' + 5, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.medicos.length).to.equal(5)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get 5 medicos from paciente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "683"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2ab-YXy9J+6/XlnOTGthUJ5Au+H/w3I\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:53:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"97ae785b-03f2-4e81-bf4a-04ddfa0c7ce9\",\n    \"nombre\": \"Puki\",\n    \"genero\": \"Mujer\",\n    \"diagnosticos\": [],\n    \"medicos\": [\n        {\n            \"id\": \"09856d05-a9af-4f6b-a987-885385bcf401\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"4f782148-eaee-48e9-b9ef-54a79e808b5b\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"28872109-f36f-4235-8a1f-a5d5c413fa81\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"b0d195f7-4b5c-4847-8398-7b066328bfbf\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        },\n        {\n            \"id\": \"a1c0fcbf-50e9-41fb-b580-4b54ee2cad72\",\n            \"nombre\": \"Alberto\",\n            \"especialidad\": \"Dentista\",\n            \"telefono\": \"3127272772\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Medico 6 To Paciente (Invalid Paciente should have only 5 medicos)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se puede agregar más de 5 médicos a un paciente\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico6_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}",
+						"medicos",
+						"{{medico6_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Medico 6 To Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{medico6_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}",
+								"medicos",
+								"{{medico6_id}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"53-7oUt+hhapCmyjzdPtRGCCIE7pZc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 03:55:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"No se puede agregar más de 5 médicos a un paciente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Invalid Medico To Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Medico no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{invalid_medico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{paciente_id}}",
+						"medicos",
+						"{{invalid_medico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Invalid Medico To Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{paciente_id}}/medicos/{{invalid_medico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{paciente_id}}",
+								"medicos",
+								"{{invalid_medico_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-1877UvzTiymU5xgd95gwsuWwQNw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:57:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Medico no encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Medico To Invalid  Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Paciente no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pacientes/{{invalid_paciente_id}}/medicos/{{medico1_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pacientes",
+						"{{invalid_paciente_id}}",
+						"medicos",
+						"{{medico1_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Medico To Invalid  Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pacientes/{{invalid_paciente_id}}/medicos/{{medico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pacientes",
+								"{{invalid_paciente_id}}",
+								"medicos",
+								"{{medico_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-18bm4srNqBkWolDgV4ceXGebfIE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:57:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Paciente no encontrado\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
