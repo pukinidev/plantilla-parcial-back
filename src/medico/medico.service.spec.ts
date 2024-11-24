@@ -11,6 +11,7 @@ describe('MedicoService', () => {
   let service: MedicoService;
   let repository: Repository<MedicoEntity>;
   let medicoList: MedicoEntity[] = [];
+  let pacienteList: PacienteEntity[] = [];
   let pacienteRepository: Repository<PacienteEntity>;
 
   beforeEach(async () => {
@@ -39,6 +40,15 @@ describe('MedicoService', () => {
         telefono: faker.phone.number(),
       });
       medicoList.push(medico);
+    }
+
+    pacienteList = [];
+    for (let i = 0; i < 5; i++) {
+      const paciente: PacienteEntity = await pacienteRepository.save({
+        nombre: faker.person.fullName(),
+        genero: faker.person.gender(),
+      });
+      pacienteList.push(paciente);
     }
   };
 
@@ -140,20 +150,8 @@ describe('MedicoService', () => {
   it('delete should throw an exception for a medico with associated pacientes', async () => {
     const storedMedico: MedicoEntity = medicoList[0];
     const medico: MedicoEntity = await service.findOne(storedMedico.id);
-
-    const pacientes: PacienteEntity[] = [];
-    for (let i = 0; i < 3; i++) {
-      const paciente: PacienteEntity = await pacienteRepository.save({
-        nombre: faker.person.fullName(),
-        genero: faker.person.gender(),
-      });
-      pacientes.push(paciente);
-    }
-
-    medico.pacientes = pacientes;
-
+    medico.pacientes = pacienteList;
     await repository.save(medico);
-
     await expect(service.delete(storedMedico.id)).rejects.toHaveProperty(
       'message',
       'No se puede eliminar un médico con pacientes asociados',
