@@ -32,6 +32,7 @@ describe('MedicoService', () => {
 
   const seedDatabase = async () => {
     repository.clear();
+    pacienteRepository.clear();
     medicoList = [];
     for (let i = 0; i < 5; i++) {
       const medico: MedicoEntity = await repository.save({
