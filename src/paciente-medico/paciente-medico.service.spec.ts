@@ -39,7 +39,7 @@ describe('PacienteMedicoService', () => {
     });
 
     medicosList = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
       const medico: MedicoEntity = await medicoRepository.save({
         nombre: `Medico ${i}`,
         especialidad: 'Especialidad',
@@ -88,8 +88,8 @@ describe('PacienteMedicoService', () => {
     ).rejects.toHaveProperty('message', 'Medico no encontrado');
   });
 
-  it('addMedicoToPaciente should throw an exception if the paciente has more than 5 medicos', async () => {
-    for (let i = 0; i < 6; i++) {
+  it('addMedicoToPaciente should throw an exception if add a new medico to a paciente with 5 medicos', async () => {
+    for (let i = 0; i < 5; i++) {
       await service.addMedicoToPaciente(paciente.id, medicosList[i].id);
     }
 
