@@ -1,0 +1,777 @@
+{
+	"info": {
+		"_postman_id": "72b5bfe3-e963-47ea-a20b-ec6818540fa7",
+		"name": "Medico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23349476"
+	},
+	"item": [
+		{
+			"name": "Add a Medico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"medico_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Medico",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-FP0wRfZfgWCuVYi4pWp5F9QY4m4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:49:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"id\": \"aa661f2f-8ac6-49f6-be78-a4ec736e941e\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Invalid Medico (Nombre)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.globals.set(\"invalid_medico_id\", \"00000000-0000-0000-0000-000000000000\");",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Invalid Medico (Nombre)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"51-rrDes8sUJNIIftYl9JF6V8fwAb4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:49:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        \"nombre should not be empty\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Invalid Medico (Especialidad)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Medico 1\",\n    \"especialidad\": \"\",\n    \"telefono\": \"3127272772\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Invalid Medico (Especialidad)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Medico 1\",\n    \"especialidad\": \"\",\n    \"telefono\": \"3127272772\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"57-84zmtt4KzO+AggCzTK+95S8Prxw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:49:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        \"especialidad should not be empty\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all Medicos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of entities > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all Medicos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/medicos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "116"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"74-V+AZ2WnSgFwRxPdtRgYSCtxjWxU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:49:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"aa661f2f-8ac6-49f6-be78-a4ec736e941e\",\n        \"nombre\": \"Alberto\",\n        \"especialidad\": \"Dentista\",\n        \"telefono\": \"3127272772\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one Medico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/medicos/{{medico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"{{medico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one Medico",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/medicos/{{medico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos",
+								"{{medico_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "129"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"81-fsZnkDj9c4R6uIMVBbCha/rrRuQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:50:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"aa661f2f-8ac6-49f6-be78-a4ec736e941e\",\n    \"nombre\": \"Alberto\",\n    \"especialidad\": \"Dentista\",\n    \"telefono\": \"3127272772\",\n    \"pacientes\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an Invalid Medico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Medico no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/medicos/{{invalid_medico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"{{invalid_medico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an Invalid Medico",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/medicos/{{invalid_medico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos",
+								"{{invalid_medico_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-1877UvzTiymU5xgd95gwsuWwQNw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:50:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Medico no encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a Medico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/medicos/{{medico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"{{medico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a Medico",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/medicos/{{medico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos",
+								"{{medico_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:50:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an Invalid Medico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Medico no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/medicos/{{invalid_medico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"{{invalid_medico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an Invalid Medico",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/medicos/{{invalid_medico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"medicos",
+								"{{invalid_medico_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-1877UvzTiymU5xgd95gwsuWwQNw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:51:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Medico no encontrado\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

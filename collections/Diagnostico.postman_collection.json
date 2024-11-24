@@ -1,0 +1,680 @@
+{
+	"info": {
+		"_postman_id": "eb8d08de-f89d-4127-acbc-aa7c38fd40a7",
+		"name": "Diagnostico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23349476"
+	},
+	"item": [
+		{
+			"name": "Add a Diagnostico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"diagnostico_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Descripcion\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Diagnostico",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Descripcion\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"62-6npF4Ef913kSwvwsUydfN3aAbPs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:46:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Descripcion\",\n    \"id\": \"e29319af-7653-4e80-8dd5-8d1c2729e06c\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Invalid Diagnostico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La descripción del diagnóstico no puede tener más de 200 caracteres\");",
+							"});",
+							"",
+							"pm.globals.set(\"invalid_diagnostico_id\", \"00000000-0000-0000-0000-000000000000\");",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Un diagnóstico médico detallado describe el estado de salud del paciente basado en un análisis exhaustivo de los síntomas, antecedentes clínicos, resultados de exámenes físicos y pruebas de laboratorio. Este puede incluir el nombre de la afección, su gravedad, posibles causas, tratamientos sugeridos, factores de riesgo asociados, y recomendaciones para prevenir complicaciones futuras o mejorar la calidad de vida del paciente afectado.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Invalid Diagnostico",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Un diagnóstico médico detallado describe el estado de salud del paciente basado en un análisis exhaustivo de los síntomas, antecedentes clínicos, resultados de exámenes físicos y pruebas de laboratorio. Este puede incluir el nombre de la afección, su gravedad, posibles causas, tratamientos sugeridos, factores de riesgo asociados, y recomendaciones para prevenir complicaciones futuras o mejorar la calidad de vida del paciente afectado.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "101"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"65-q9F5CdDD3LB75s1iHhKZC35tIWI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:46:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"La descripción del diagnóstico no puede tener más de 200 caracteres\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all Diagnosticos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of entities > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all Diagnosticos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"64-rbMI5vCzTw+AuPQS9Ut1rxVFQD4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:46:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"e29319af-7653-4e80-8dd5-8d1c2729e06c\",\n        \"nombre\": \"Diagnostico 1\",\n        \"descripcion\": \"Descripcion\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one Diagnostico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos/{{diagnostico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos",
+						"{{diagnostico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one Diagnostico",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos/{{diagnostico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos",
+								"{{diagnostico_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"71-S++PD2X7IgjPNrBDqKlULkzIbK4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:47:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"e29319af-7653-4e80-8dd5-8d1c2729e06c\",\n    \"nombre\": \"Diagnostico 1\",\n    \"descripcion\": \"Descripcion\",\n    \"pacientes\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an Invalid Diagnostico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Diagnostico no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos/{{invalid_diagnostico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos",
+						"{{invalid_diagnostico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an Invalid Diagnostico",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos/{{invalid_diagnostico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos",
+								"{{invalid_diagnostico_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-9VCaaFQNvIjbr7EEhxVPLrueWv0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:48:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Diagnostico no encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a Diagnostico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos/{{diagnostico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos",
+						"{{diagnostico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a Diagnostico",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos/{{diagnostico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos",
+								"{{diagnostico_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:47:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an Invalid Diagnostico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Diagnostico no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/diagnosticos/{{invalid_diagnostico_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"diagnosticos",
+						"{{invalid_diagnostico_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an Invalid Diagnostico",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/diagnosticos/{{invalid_diagnostico_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diagnosticos",
+								"{{invalid_diagnostico_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-9VCaaFQNvIjbr7EEhxVPLrueWv0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Nov 2024 02:48:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Diagnostico no encontrado\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
